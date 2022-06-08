@@ -93,6 +93,7 @@ class RichTextEditor extends React.Component {
               placeholder="Tell a story..."
               ref="editor"
               spellCheck={true}
+              
             />
           </div>
         </div>
@@ -103,7 +104,7 @@ class RichTextEditor extends React.Component {
   // Custom overrides for "code" style.
   const styleMap = {
     CODE: {
-      backgroundColor: 'rgba(0, 0, 0, 0.05)',
+      backgroundColor: 'rgba(60, 60, 60, 0.95)',
       fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
       fontSize: 16,
       padding: 2,

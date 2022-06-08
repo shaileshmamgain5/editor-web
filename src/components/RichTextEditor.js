@@ -17,6 +17,12 @@ class RichTextEditor extends React.Component {
       this.toggleInlineStyle = this._toggleInlineStyle.bind(this);
     }
 
+    componentDidMount() {
+      //var $this = $(ReactDOM.findDOMNode(this));
+      // set el height and width etc.
+      this.focus()
+    }
+
     _handleKeyCommand(command, editorState) {
       const newState = RichUtils.handleKeyCommand(editorState, command);
       if (newState) {
@@ -74,14 +80,22 @@ class RichTextEditor extends React.Component {
 
       return (
         <div className="RichEditor-root">
+          <div className="RichEditor-menu">
+          <div class='inline-block-child'>
           <BlockStyleControls
             editorState={editorState}
             onToggle={this.toggleBlockType}
           />
+          </div>
+          <div class='inline-block-child'>
           <InlineStyleControls
             editorState={editorState}
             onToggle={this.toggleInlineStyle}
           />
+          </div>
+          
+          </div>
+          
           <div className={className} onClick={this.focus}>
             <Editor
               blockStyleFn={getBlockStyle}
@@ -90,7 +104,7 @@ class RichTextEditor extends React.Component {
               handleKeyCommand={this.handleKeyCommand}
               keyBindingFn={this.mapKeyToEditorCommand}
               onChange={this.onChange}
-              placeholder="Tell a story..."
+              placeholder="Start typing..."
               ref="editor"
               spellCheck={true}
               
@@ -145,14 +159,15 @@ class RichTextEditor extends React.Component {
     {label: 'H1', style: 'header-one'},
     {label: 'H2', style: 'header-two'},
     {label: 'H3', style: 'header-three'},
-    {label: 'H4', style: 'header-four'},
-    {label: 'H5', style: 'header-five'},
-    {label: 'H6', style: 'header-six'},
     {label: 'Blockquote', style: 'blockquote'},
     {label: 'UL', style: 'unordered-list-item'},
     {label: 'OL', style: 'ordered-list-item'},
     {label: 'Code Block', style: 'code-block'},
   ];
+
+  // {label: 'H4', style: 'header-four'},
+  //   {label: 'H5', style: 'header-five'},
+  //   {label: 'H6', style: 'header-six'},
 
   const BlockStyleControls = (props) => {
     const {editorState} = props;

@@ -1,3 +1,3 @@
-# Getting Started with Create React App
+# Editor - Ethena.io
 
 [Online Editor](https://www.ethena.io/).
